@@ -1,7 +1,5 @@
 package com.sy.logi.controller;
 
-import com.sy.logi.dto.request.CreateUserRequestDto;
-import com.sy.logi.service.UserServiceImpl;
 import com.sy.logi.service.impl.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -12,14 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/register")
-    public void createUser(@Valid @RequestBody CreateUserRequestDto createUserRequestDto){
-        userService.createUser(createUserRequestDto);
-
-    }
 }

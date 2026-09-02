@@ -1,6 +1,6 @@
 package com.sy.logi.service;
 
-import com.sy.logi.dto.request.CreateUserRequestDto;
+import com.sy.logi.dto.request.RegisterRequestDto;
 import com.sy.logi.entity.User;
 import com.sy.logi.repository.UserRepository;
 import com.sy.logi.service.impl.UserService;
@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public void createUser(CreateUserRequestDto createUserRequestDto) {
+    public void createUser(RegisterRequestDto createUserRequestDto) {
 
         User user = new User();
         user.setEmail(createUserRequestDto.getEmail());

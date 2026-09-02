@@ -1,4 +1,4 @@
-package com.sy.logi.dto.response;
+package com.sy.logi.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserResponseDto {
+public class RegisterRequestDto {
 
+    private String email;
+    private String password;
     private String firstName;
+    private String lastName;
 }
