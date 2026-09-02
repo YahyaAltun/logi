@@ -12,6 +12,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -33,7 +35,7 @@ public class User {
     @Column(length = 50, nullable = false, unique = true)
     private String email;
 
-    @Column(length = 150, nullable = false)
+    @Column(length = 256, nullable = false)
     private String password;
 
     @Column(length = 50, nullable = false)
@@ -49,5 +51,11 @@ public class User {
     @LastModifiedDate
     @Column(nullable = false)
     private Instant updatedDate;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "tbl_user_roles",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
 }
